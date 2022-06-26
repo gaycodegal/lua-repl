@@ -10,8 +10,7 @@ OBJ_NAME=main
 ifneq (,$(findstring wasm,$(MAKECMDGOALS)))
 OBJ_NAME=html/term.js
 CC=emcc
-#Including <emscripten/bind.h> requires building with -std=c++11 or newer
-EMFLAGS=-lembind -s ALLOW_MEMORY_GROWTH=1
+EMFLAGS=-lembind -sALLOW_MEMORY_GROWTH=1 -sASYNCIFY -sINVOKE_RUN=0
 endif
 
 CPPFLAGS = $(INC)
@@ -21,7 +20,7 @@ all: $(OBJS)
 	echo $(OBJS)
 	$(CC) $(OBJS) $(CFLAGS) $(LINKER_FLAGS) -o $(OBJ_NAME)
 wasm: $(OBJS)
-	$(CC) $(OBJS) $(CFLAGS) $(EMFLAGS) $(LINKER_FLAGS) -o $(OBJ_NAME) #--preload-file resources/
+	$(CC) $(OBJS) $(CFLAGS) -O2 $(EMFLAGS) $(LINKER_FLAGS) -o $(OBJ_NAME) #--preload-file resources/
 clean:
 	git clean -fX
 re:

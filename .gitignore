@@ -5,3 +5,6 @@
 
 # wasm
 *.o
+
+# our project
+third_party/
