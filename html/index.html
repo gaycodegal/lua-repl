@@ -5,6 +5,8 @@
     <script>
       var Module = {
 	  onRuntimeInitialized: function() {
+	      // technically main is already called by emscripten
+	      // so this will run main a second time.
 	      document.getElementById("output");
 	      const vec = new Module.StringList();
 	      vec.push_back("One");
