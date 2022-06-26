@@ -26,4 +26,5 @@ clean:
 re:
 	make clean all
 format:
-	clang-format -i $(shell find source/ headers/ -iname '*.[ch]')
+	clang-format -i $(shell find source/ headers/ term/ -iname '*.[ch]')
+	clang-format -i $(shell find source/ headers/ term/ -iname '*.[ch][ch]')
