@@ -2,16 +2,9 @@
 <html>
   <body>
     <pre id="output"></pre>
+    <input id="input" type="text"></input>
+    <script src="helpers.js"></script>
     <script>
-      const history = [];
-      function print(s) {
-	  history.push(s);
-	  if (history.length > 10) {
-	      history.splice(0, history.length - 10);
-	  }
-	  const output = document.getElementById("output");
-	  output.textContent = history.join('\n');
-      }
       var Module = {
 	  onRuntimeInitialized: async function() {
 	      // technically main is already called by emscripten
@@ -22,8 +15,8 @@
 	      vec.push_back("Two");
 	      vec.push_back("1.234");
 	      vec.push_back("Four");
-	      print("hi");
-              print('main result: ' + await Module.main(vec));
+	      print("hi\n");
+              print('main result: ' + await Module.main(vec) + '\n');
 	  }
       };
     </script>

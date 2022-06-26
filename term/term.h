@@ -6,9 +6,12 @@
 #ifdef __EMSCRIPTEN__
 #include <stdlib.h>
 
+char *readline(const char *prompt);
+#else
+#include <readline/history.h>
+#include <readline/readline.h>
 #endif
 
-int example();
 void eprintf(const char *format, ...);
 
 #endif

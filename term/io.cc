@@ -15,7 +15,7 @@ void eprintf(const char *format, ...) {
   size_t size = vsnprintf(NULL, 0, format, args);
   char *output = (char *)malloc(size + 1);
   vsprintf(output, format, args);
-  EM_ASM({ print('I received: ' + UTF8ToString($0)); }, output);
+  EM_ASM({ print(UTF8ToString($0)); }, output);
 
   free(output);
 #else
@@ -26,20 +26,21 @@ void eprintf(const char *format, ...) {
 }
 
 #ifdef __EMSCRIPTEN__
-EM_ASYNC_JS(int, do_fetch, (), {
-  print("waiting for a fetch");
-  const response = await fetch("index.html");
-  print("got the fetch response");
-  // (normally you would do something with the fetch here)
-  return 42;
+EM_ASYNC_JS(char *, readline_js, (), {
+  const response = await readline_from_input();
+  const byteCount = (Module.lengthBytesUTF8(response) + 1);
+
+  const linePointer = Module._malloc(byteCount);
+  Module.stringToUTF8(response, linePointer, byteCount);
+
+  return linePointer;
 });
 
-int example() { return do_fetch(); }
+char *readline(const char *prompt) {
+  eprintf("%s", prompt);
+  return readline_js();
+}
 
-#else
-extern "C" {
-int example() { return 1337; }
-};
 #endif
 
 #ifdef __EMSCRIPTEN__
