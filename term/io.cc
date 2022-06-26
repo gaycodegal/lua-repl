@@ -25,8 +25,6 @@ void eprintf(const char *format, ...) {
   va_end(args);
 }
 
-float lerp(float a, float b, float t) { return (1 - t) * a + t * b; }
-
 #ifdef __EMSCRIPTEN__
 EM_ASYNC_JS(int, do_fetch, (), {
   print("waiting for a fetch");
@@ -62,7 +60,6 @@ int wrap_main(const std::vector<std::string> &args) {
 EMSCRIPTEN_BINDINGS(my_module) {
   emscripten::register_vector<std::string>("StringList");
 
-  emscripten::function("lerp", &lerp);
   emscripten::function("main", &wrap_main);
 }
 #endif
