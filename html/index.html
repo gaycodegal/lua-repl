@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+  <body>
+    <pre id="output"></pre>
+    <script>
+      var Module = {
+	  onRuntimeInitialized: function() {
+	      document.getElementById("output");
+	      const vec = new Module.StringList();
+	      vec.push_back("One");
+	      vec.push_back("Two");
+	      vec.push_back("1.234");
+	      vec.push_back("Four");
+              output.textContent = ('main result: ' + Module.main(vec));
+	  }
+      };
+    </script>
+    <script src="term.js"></script>
+  </body>
+</html>
