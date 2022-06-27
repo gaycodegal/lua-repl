@@ -36,13 +36,22 @@ function linked_list_add(self, item) {
     }
 }
 
+/**
+ * Print a message to the visual console
+ * this suffers from a screen reader bug
+ * whereby messages sent in quick succession
+ * are not read in the correct order by the screenreader
+ */
 function print(s) {
-    history.push(s);
+    /*history.push(s);
     if (history.length > 10) {
 	history.splice(0, history.length - 10);
-    }
+    }*/
     const output = document.getElementById("output");
-    output.textContent = history.join('');
+    const element = document.createElement('span');
+    element.setAttribute('aria-live', 'polite');
+    element.textContent = s;
+    output.append(element);
 }
 
 function input_submit(value) {
