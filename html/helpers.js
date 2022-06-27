@@ -1,9 +1,14 @@
 const history = [];
 const pending_inputs_linked_list = linked_list_new();
 let pending_readline_request = null;
-let last_input_group = null;
-let last_input_group_timeout = null;
+let last_output_group = null;
+let last_output_group_timeout = null;
+const LAST_OUTPUT_GROUP_TIME = 500;
+const HISTORY_SIZE = 10;
 
+////////////////////////////////////////////////////
+/// Linked list section
+////////////////////////////////////////////////////
 function linked_list_new() {
     return {first:null, last:null};
 }
@@ -38,34 +43,59 @@ function linked_list_add(self, item) {
     }
 }
 
+////////////////////////////////////////////////////
+/// Print section
+////////////////////////////////////////////////////
+
 /**
  * Print a message to the visual console
  * Simply adding aria-live elements to the page suffers
  * from a screen reader bug
  * whereby messages sent in quick succession
  * are not read in the correct order by the screenreader.
- * This is why the weird last_input_group stuff must be done
+ * This is why the weird last_output_group stuff must be done
  */
 function print(s) {
     const output = document.getElementById("output");
-    if (last_input_group == null) {
-    	last_input_group = document.createElement('span');
-	last_input_group.setAttribute('aria-live', 'polite');
-	output.append(last_input_group);
+    if (last_output_group == null) {
+    	last_output_group = document.createElement('span');
+	last_output_group.setAttribute('aria-live', 'polite');
+	output.append(last_output_group);
     }
     const element = document.createElement('span');
     element.textContent = s;
-    last_input_group.append(element);
-    if (last_input_group_timeout){
-	clearTimeout(last_input_group_timeout);
+    last_output_group.append(element);
+    if (last_output_group_timeout){
+	clearTimeout(last_output_group_timeout);
+    }    
+
+    history.push(element);
+    
+    if (history.length > HISTORY_SIZE) {
+	const overflow = history.length - HISTORY_SIZE;
+	for (let i = 0; i < overflow; ++i) {
+	    const to_remove = history[i];
+	    const parent = to_remove.parentElement;
+	    parent.removeChild(to_remove);
+	    if (parent.children.length === 0) {
+		output.removeChild(parent);
+	    }
+	}
+	history.splice(0, overflow);
     }
-    last_input_group_timeout = setTimeout(clear_last_input_group, 500);
+
+    // keep last
+    last_output_group_timeout = setTimeout(clear_last_output_group, LAST_OUTPUT_GROUP_TIME);
 }
 
-function clear_last_input_group() {
-    last_input_group_timeout = null;
-    last_input_group = null;
+function clear_last_output_group() {
+    last_output_group_timeout = null;
+    last_output_group = null;
 }
+
+////////////////////////////////////////////////////
+/// Input section
+////////////////////////////////////////////////////
 
 function input_submit(value) {
     if (pending_readline_request) {
