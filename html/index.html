@@ -1,25 +1,32 @@
 <!doctype html>
-<html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <title>Terminal Demo (WebAssembly)</title>
+    <link rel="stylesheet" href="style.css"></link>
+  </head>
   <body>
-    <pre id="output"></pre>
-    <input id="input" type="text"></input>
-    <script src="helpers.js"></script>
-    <script>
-      var Module = {
-	  onRuntimeInitialized: async function() {
-	      // technically main is already called by emscripten
-	      // so this will run main a second time.
+    <main>
+      <pre id="output"></pre>
+      <input id="input" type="text"></input>
+      <script src="helpers.js"></script>
+      <script>
+	var Module = {
+	    onRuntimeInitialized: async function() {
+		// technically main is already called by emscripten
+		// so this will run main a second time.
 
-	      const vec = new Module.StringList();
-	      vec.push_back("One");
-	      vec.push_back("Two");
-	      vec.push_back("1.234");
-	      vec.push_back("Four");
-	      print("hi\n");
-              print('main result: ' + await Module.main(vec) + '\n');
-	  }
-      };
-    </script>
-    <script src="term.js"></script>
+		const vec = new Module.StringList();
+		vec.push_back("One");
+		vec.push_back("Two");
+		vec.push_back("1.234");
+		vec.push_back("Four");
+		print("hi\n");
+		print('main result: ' + await Module.main(vec) + '\n');
+	    }
+	};
+      </script>
+      <script src="term.js"></script>
+    </main>
   </body>
 </html>

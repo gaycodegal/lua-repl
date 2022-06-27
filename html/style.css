@@ -1,0 +1,13 @@
+body {
+    background: darkslategrey;
+}
+
+#output {
+    background:black;
+    color: white;
+}
+
+#input {
+    background:black;
+    color: white;
+}
