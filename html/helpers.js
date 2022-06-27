@@ -1,6 +1,8 @@
 const history = [];
 const pending_inputs_linked_list = linked_list_new();
 let pending_readline_request = null;
+let last_input_group = null;
+let last_input_group_timeout = null;
 
 function linked_list_new() {
     return {first:null, last:null};
@@ -38,20 +40,31 @@ function linked_list_add(self, item) {
 
 /**
  * Print a message to the visual console
- * this suffers from a screen reader bug
+ * Simply adding aria-live elements to the page suffers
+ * from a screen reader bug
  * whereby messages sent in quick succession
- * are not read in the correct order by the screenreader
+ * are not read in the correct order by the screenreader.
+ * This is why the weird last_input_group stuff must be done
  */
 function print(s) {
-    /*history.push(s);
-    if (history.length > 10) {
-	history.splice(0, history.length - 10);
-    }*/
     const output = document.getElementById("output");
+    if (last_input_group == null) {
+    	last_input_group = document.createElement('span');
+	last_input_group.setAttribute('aria-live', 'polite');
+	output.append(last_input_group);
+    }
     const element = document.createElement('span');
-    element.setAttribute('aria-live', 'polite');
     element.textContent = s;
-    output.append(element);
+    last_input_group.append(element);
+    if (last_input_group_timeout){
+	clearTimeout(last_input_group_timeout);
+    }
+    last_input_group_timeout = setTimeout(clear_last_input_group, 500);
+}
+
+function clear_last_input_group() {
+    last_input_group_timeout = null;
+    last_input_group = null;
 }
 
 function input_submit(value) {
