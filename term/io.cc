@@ -7,22 +7,32 @@ extern "C" {
 #include <emscripten/bind.h>
 #endif
 
-void eprintf(const char *format, ...) {
+#ifdef __EMSCRIPTEN__
+char *rl_readline_name;
+
+void add_history(const char *item) {
+
+}
+
+#endif
+int eprintf(const char *format, ...) {
   va_list args;
   va_start(args, format);
-
-#ifdef __EMSCRIPTEN__
   size_t size = vsnprintf(NULL, 0, format, args);
+  va_end(args);
+#ifdef __EMSCRIPTEN__
   char *output = (char *)malloc(size + 1);
   vsprintf(output, format, args);
   EM_ASM({ print(UTF8ToString($0)); }, output);
 
   free(output);
 #else
+  va_start(args, format);
   vprintf(format, args);
+  va_end(args);
 #endif
 
-  va_end(args);
+  return size;
 }
 
 #ifdef __EMSCRIPTEN__

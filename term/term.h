@@ -1,3 +1,5 @@
+#define printf eprintf
+
 #ifndef TERM__WASM_TERM_LIB
 #define TERM__WASM_TERM_LIB
 #include <stdarg.h>
@@ -12,6 +14,7 @@ char *readline(const char *prompt);
 #include <readline/readline.h>
 #endif
 
-void eprintf(const char *format, ...);
-
+int eprintf(const char *format, ...);
+void add_history(const char *item);
+extern char *rl_readline_name;
 #endif

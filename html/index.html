@@ -17,16 +17,13 @@
 		// so this will run main a second time.
 
 		const vec = new Module.StringList();
-		vec.push_back("One");
-		vec.push_back("Two");
-		vec.push_back("1.234");
-		vec.push_back("Four");
-		print("hi\n");
+		//must have program name
+		vec.push_back("lua");
 		print('main result: ' + await Module.main(vec) + '\n');
 	    }
 	};
       </script>
-      <script src="term.js"></script>
+      <script src="lua.js"></script>
     </main>
   </body>
 </html>

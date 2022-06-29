@@ -4,7 +4,7 @@ let pending_readline_request = null;
 let last_output_group = null;
 let last_output_group_timeout = null;
 const LAST_OUTPUT_GROUP_TIME = 500;
-const HISTORY_SIZE = 10;
+const HISTORY_SIZE = 100;
 
 ////////////////////////////////////////////////////
 /// Linked list section
@@ -99,6 +99,7 @@ function clear_last_output_group() {
 
 function input_submit(value) {
     if (pending_readline_request) {
+	print(value + "\n");
 	pending_readline_request(value);
     } else {
 	linked_list_add(pending_inputs_linked_list, value);
@@ -122,6 +123,7 @@ function readline_from_input() {
 	    pending_readline_request = accept;
 	} else {
 	    const output = linked_list_pop_front(pending_inputs_linked_list);
+	    print(output + "\n");
 	    accept(output);
 	}
     });

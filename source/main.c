@@ -4,6 +4,8 @@
 #include <string.h>
 
 #include "term.h"
+#include <readline/readline.h>
+
 
 int main(int argc, const char **argv) {
   char *result = malloc(1);
@@ -13,7 +15,7 @@ int main(int argc, const char **argv) {
       free(result);
     }
     result = readline("type something (stop to exit)\n");
-    eprintf("you typed: '%s'\n", result);
+    printf("you typed: '%s'\n", result);
   }
   return 0;
 }

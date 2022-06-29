@@ -9,3 +9,4 @@
 # our project
 third_party/
 main
+!third_party/lua-5.4.4.makefile
