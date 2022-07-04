@@ -89,6 +89,7 @@ function print(s) {
 }
 
 function clear_last_output_group() {
+    last_output_group.removeAttribute('aria-live');
     last_output_group_timeout = null;
     last_output_group = null;
 }
@@ -120,6 +121,8 @@ window.addEventListener("load", function(){
 function readline_from_input() {
     return new Promise((accept, reject)=>{
 	if (linked_list_is_empty(pending_inputs_linked_list)) {
+	    const input = document.getElementById("input");
+	    input.focus();
 	    pending_readline_request = accept;
 	} else {
 	    const output = linked_list_pop_front(pending_inputs_linked_list);
