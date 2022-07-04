@@ -6,7 +6,6 @@
 #include "term.h"
 #include <readline/readline.h>
 
-
 int main(int argc, const char **argv) {
   char *result = malloc(1);
   result[0] = '\0';
