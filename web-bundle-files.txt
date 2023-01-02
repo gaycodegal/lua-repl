@@ -7,7 +7,7 @@ README.md
 html/dark-mode.js
 html/helpers.js
 html/lua-logo.gif
-html/lua-logo.webp
+html/lua-logo-mask.webp
 html/style.css
 html/files.js
 html/lua.js
