@@ -37,6 +37,7 @@ format:
 	clang-format -i $(shell find source/ headers/ term/ -iname '*.[ch]')
 	clang-format -i $(shell find source/ headers/ term/ -iname '*.[ch][ch]')
 web-bundle:
-	mkdir Lua-REPL
-	cat web-bundle-files.txt | rg -v '#' | xargs cp -t Lua-REPL/
+	mkdir -p Lua-REPL
+	mkdir -p Lua-REPL/html
+	cat web-bundle-files.txt | rg -v '#' | xargs cp --parents -t Lua-REPL/
 	/HOME/go/bin/gen-bundle -dir Lua-REPL -baseURL 'https://gaycodegal.github.io/wasm-term/html/' -primaryURL 'https://gaycodegal.github.io/wasm-term/html/' -o Lua-REPL.wbn
