@@ -1,0 +1,19 @@
+{
+    "$schema": "https://json.schemastore.org/web-manifest-combined.json",
+    "name": "Lua REPL",
+    "short_name": "Lua REPL",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#333",
+    "description": "A Lua REPL built with JS/WASM.",
+    "icons": [{
+	"src": "html/lua-logo.gif",
+	"sizes": "128x128",
+	"type": "image/gif"
+    },{
+	"src": "html/lua-logo-mask.webp",
+	"type": "image/webp",
+	"sizes": "160x160",
+	"purpose": "maskable"
+    }],
+}
