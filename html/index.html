@@ -8,8 +8,23 @@
   <body>
     <main>
       <pre id="output"></pre>
-      <input id="input" type="text"></input>
+      <input
+	id="input"
+	type="text"
+	aria-describedby="input-description"
+	></input>
+      <label
+	style="display: block"
+	for="input"
+	>
+	Console input when required.
+      </label>
+      <div id="input-description">
+	When a program reaches a breakpoint that requires text input,
+	put your input into this field and press enter.
+      </div>
       <script src="helpers.js"></script>
+      <script src="files.js"></script>
       <script>
 	var Module = {
 	    onRuntimeInitialized: async function() {
