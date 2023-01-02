@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport"  content="width=device-width initial-scale=1.0">
+    <meta name="description" content="A Lua REPL built with JS/WASM">
+    <title>Lua REPL</title>
+    <link rel="icon" type="image/x-icon" href="html/images/favicon.ico">
+    <link rel="stylesheet" href="html/style.css"></link>
+    <script src="html/dark-mode.js"></script>
+  </head>
+  <body class="dark">
+    <main>
+      <pre id="output"></pre>
+      <input
+	id="input"
+	type="text"
+	aria-describedby="input-description"
+	></input>
+      <label
+	style="display: block"
+	for="input"
+	>
+	Console input when required.
+      </label>
+      <div id="input-description">
+	When a program reaches a breakpoint that requires text input,
+	put your input into this field and press enter.
+      </div>
+      <script src="html/helpers.js"></script>
+      <script src="html/files.js"></script>
+      <script>
+	var Module = {
+	    onRuntimeInitialized: async function() {
+		// technically main is already called by emscripten
+		// so this will run main a second time.
+
+		const vec = new Module.StringList();
+		//must have program name
+		vec.push_back("lua");
+		print('main result: ' + await Module.main(vec) + '\n');
+	    }
+	};
+      </script>
+      <script src="html/lua.js"></script>      
+    </main>
+    <footer>
+      <a href="https://github.com/gaycodegal/wasm-term">this project itself is MIT licensed</a>
+      <p>
+	legally, the following licenses need to be distributed with the project:
+      </p>
+      <ol>
+	<li>
+	  <a href="https://www.lua.org/license.html">Lua is MIT Licensed</a>
+	</li>
+      </ol>
+
+      <button onclick="toggleDarkmode()">toggle darkmode</button>
+    </footer>
+  </body>
+</html>

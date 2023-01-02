@@ -1,13 +1,74 @@
-body {
-    background: darkslategrey;
+
+.error {
+    color: #E00000; /*5.03:1 on white*/
 }
 
-#output {
+.hide-wavefile-js{
+    display: none;
+}
+
+body{
+    padding: 0px;
+    margin: 0px;
+    display:flex;
+    height: 100vh;
+    flex-direction: column;
+    font-family: sans-serif;
+}
+
+main {
+    display: block;
+    flex: 1;
+    padding: 8px;
+}
+
+button {
+    margin: 5px 0px;
+}
+
+footer {
+    flex: 0;
+    margin-top: 10px;
+    border: solid;
+    border-width: 2px 0px 0px 0px;
+    padding: 8px;
+}
+
+li {
+    margin: 10px 0;
+}
+
+/* touch target size */
+@media only screen and (max-width: 600px) {  
+    a, button, input {
+	min-height: 48px;
+	min-width: 48px;
+	display: inline-block;
+	vertical-align: middle;
+	line-height: 48px;
+    }
+}
+
+/* darkmode */
+
+.dark {
+    background: #333;
+    color: white;
+}
+
+.dark a:visited {
+    color: orange;
+}
+.dark a {
+    color: #9999FF;
+}
+
+.dark #output {
     background:black;
     color: white;
 }
 
-#input {
+.dark #input {
     background:black;
     color: white;
 }
