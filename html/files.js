@@ -46,7 +46,8 @@ function deleteFileButton(file) {
 function openFileButton(file) {
     const button = document.createElement("button");
     button.addEventListener("click", function(){
-	location.href = `../?file=${encodeURIComponent(pathOf(file))}`
+	localStorage.setItem('to-run', pathOf(file));
+	location.href = '../';
     });
     button.textContent = "run";
     const label = `run ${file}`;
