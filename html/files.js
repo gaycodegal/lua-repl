@@ -30,6 +30,18 @@ function openDirButton(file) {
     return button;
 }
 
+function downloadFileButton(file) {
+    const button = document.createElement("button");
+    button.addEventListener("click", function(){
+	downloadFile(file);
+    });
+    button.textContent = "download";
+    const label = `download ${file}`;
+    button.ariaLabel = label;
+    button.title = label;
+    return button;
+}
+
 function deleteFileButton(file) {
     const button = document.createElement("button");
     button.addEventListener("click", function(){
@@ -66,6 +78,7 @@ function makeFileListing(file) {
 	actions.appendChild(openDirButton(file));
     } else if (FS.isFile(mode)) {
 	actions.appendChild(openFileButton(file));
+	actions.appendChild(downloadFileButton(file));
 	actions.appendChild(deleteFileButton(file));
     }
     
@@ -109,7 +122,7 @@ function addFile(path, name, data) {
 function downloadFile(path) {
     const parts = path.split('/');
     const name = parts[parts.length - 1];
-    const contents = FS.readFile(path);
+    const contents = FS.readFile(path, {encoding: 'utf8'});
     const href = `data:;base64,${btoa(contents)}`;
     downloadLink(name, href);
 }
