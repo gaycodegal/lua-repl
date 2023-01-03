@@ -37,12 +37,22 @@
       <p aria-live="alert">
 	This page is under development and does not yet work
       </p>
+      <h2>
+	Path: <span id="current-path">/</span>
+      </h2>
+      <table id="file-list">
+	<tr>
+	  <th> File Name </th>
+	  <th> Actions </th>
+	</tr>
+      </table>
+      <br>
       <label
 	for="file-picker"
 	>
 	Upload file(s):
       </label>
-      <input id="file-picker" type="file"/>
+      <input id="file-picker" type="file" multiple onchange="addFileFromInput(this)"/>
       <script src="files.js"></script>
       <script src="lua.js"></script>      
     </main>

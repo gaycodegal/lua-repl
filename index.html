@@ -53,17 +53,27 @@
 	put your input into this field and press enter.
       </div>
       <script src="html/helpers.js"></script>
-      <script src="html/files.js"></script>
       <script>
 	var Module = {
-	    onRuntimeInitialized: async function() {
-		// technically main is already called by emscripten
-		// so this will run main a second time.
+	    onRuntimeInitialized: function() {
+		FS.mkdir('/idbfs');
+		FS.mount(IDBFS, { root: '.' }, '/idbfs');
+		FS.syncfs(true, async function(){
+		    // technically main is already called by emscripten
+		    // so this will run main a second time.
+		    const url = new URL(location.href);
+		    
+		    const vec = new Module.StringList();
+		    //must have program name
+		    vec.push_back("lua");
+		    const file = url.searchParams.get('file')
+		    const promise = Module.main(vec);
+		    if (file) {
+			input_submit(`dofile("${file}")`);
+		    }
+		    print('main result: ' + await promise + '\n');
 
-		const vec = new Module.StringList();
-		//must have program name
-		vec.push_back("lua");
-		print('main result: ' + await Module.main(vec) + '\n');
+		});
 	    }
 	};
       </script>
