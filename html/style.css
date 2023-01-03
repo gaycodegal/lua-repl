@@ -83,3 +83,7 @@ li {
     background:black;
     color: white;
 }
+
+.dark .error {
+    color:#FF7A7A; /*5:1 on #333*/
+}
