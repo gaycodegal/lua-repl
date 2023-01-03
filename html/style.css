@@ -19,7 +19,18 @@ body{
 main {
     display: block;
     flex: 1;
-    padding: 8px;
+    padding: 0 8px 8px 8px;
+}
+
+nav {
+    padding: 8px 8px 0 8px;
+}
+
+nav li {
+    display: inline-block;
+    margin-right: 8px;
+    border-left: 2px solid;
+    padding-left: 8px;
 }
 
 button {
@@ -40,7 +51,7 @@ li {
 
 /* touch target size */
 @media only screen and (max-width: 600px) {  
-    a, button, input {
+    a, button, input, details {
 	min-height: 48px;
 	min-width: 48px;
 	display: inline-block;

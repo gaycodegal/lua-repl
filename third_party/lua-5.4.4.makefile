@@ -17,7 +17,7 @@ SYSCFLAGS=-DLUA_USE_LINUX -DLUA_USE_READLINE -include 'term.h' -include 'lua-fix
 SYSLIBS=-Wl,-E -ldl -lm
 LUA_EXTRA=MYCFLAGS="$(SYSCFLAGS) $(SYSINC)" MYLIBS="$(SYSLIBS)" CC="$(CC) -std=gnu99" RANLIB="emranlib" AR="emar rcu"
 #__wasm_CORE_O=$(addprefix $(LUA_DIR),$(CORE_O))
-EMFLAGS=-lembind -sALLOW_MEMORY_GROWTH=1 -sASYNCIFY -sINVOKE_RUN=0 -s EXPORTED_RUNTIME_METHODS="['lengthBytesUTF8', 'stringToUTF8']"
+EMFLAGS=-lembind -sALLOW_MEMORY_GROWTH=1 -sASYNCIFY -lidbfs.js -sINVOKE_RUN=0 -s EXPORTED_RUNTIME_METHODS="['lengthBytesUTF8', 'stringToUTF8']"
 
 wasm: $(IO_O)
 	make -C $(LUA_DIR) a $(LUA_EXTRA)

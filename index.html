@@ -10,7 +10,30 @@
     <script src="html/dark-mode.js"></script>
   </head>
   <body class="dark">
+    <nav>
+      <details>
+	<summary>Navigation Links</summary>
+	<ul>
+	  <li>
+	    <a href="/">
+	      The Lua REPL
+	    </a>
+	  </li>
+	  <li>
+	    <a href="html/file-management.html">
+	      File Management
+	    </a>
+	  </li>
+	  <li>
+	    <a href="html/license.html">
+	      License
+	    </a>
+	  </li>
+	</ul>
+      </details>      
+    </nav>
     <main>
+      <h1>Lua REPL</h1>
       <pre id="output"></pre>
       <input
 	id="input"
@@ -47,19 +70,7 @@
       <script src="html/lua.js"></script>      
     </main>
     <footer>
-      <a href="https://github.com/gaycodegal/wasm-term">this project itself is MIT licensed</a>
-      <p>
-	legally, the following licenses need to be distributed with the project:
-      </p>
-      <ol>
-	<li>
-	  <a href="https://www.lua.org/license.html">Lua is MIT Licensed</a>
-	</li>
-	<li>
-	  <a href="https://www.lua.org/images/">The Lua Logo has a custom license by Alexandre Nakonechnyj</a>
-	</li>
-      </ol>
-
+      <a href="html/license.html">license</a>
       <button onclick="toggleDarkmode()">toggle darkmode</button>
     </footer>
   </body>
