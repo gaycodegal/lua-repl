@@ -22,7 +22,7 @@ self.addEventListener("install", event => {
 	    "html/term.js",
 	    "html/icons/lua-logo-192-mask.webp",
 	    "html/icons/lua-logo-192.webp",
-	    
+	    "html/icons/open_in_new_FILL0_wght400_GRAD0_opsz48.svg",
 	])
     );
 });

@@ -1,4 +1,19 @@
 
+.external-link {
+    background-color: black;
+    width: 1.5em;
+    height: 1.5em;
+    display: inline-block;
+    vertical-align: middle;
+    content: " ";
+    -webkit-mask-image: url('icons/open_in_new_FILL0_wght400_GRAD0_opsz48.svg');
+    -webkit-mask-size: 1.5em 1.5em;
+    -webkit-mask-repeat: no-repeat;
+    mask-image: url('icons/open_in_new_FILL0_wght400_GRAD0_opsz48.svg');
+    mask-size: 1.5em 1.5em;
+    mask-repeat: no-repeat;
+}
+
 .error {
     color: #E00000; /*5.03:1 on white*/
 }
@@ -67,9 +82,14 @@ li {
     color: white;
 }
 
+.dark .external-link {
+    background-color: white;
+}
+
 .dark a:visited {
     color: orange;
 }
+
 .dark a {
     color: #9999FF;
 }
