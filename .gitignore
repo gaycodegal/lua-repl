@@ -13,3 +13,7 @@ third_party/lua.wasm
 Lua-REPL/
 Lua-REPL.wbn
 Lua-REPL.zip
+
+# lua logo
+lua-logo-nolabel.ps
+lua-logo-nolabel-full.png

@@ -3,17 +3,27 @@
     "name": "Lua REPL",
     "short_name": "Lua REPL",
     "start_url": ".",
-    "display": "standalone",
+    "display": "minimal-ui",
     "background_color": "#333",
+    "theme_color": "#333",
     "description": "A Lua REPL built with JS/WASM.",
     "icons": [{
-	"src": "html/lua-logo.gif",
-	"sizes": "128x128",
-	"type": "image/gif"
+	"src": "html/icons/lua-logo-512.png",
+	"sizes": "512x512",
+	"type": "image/webp"
     },{
-	"src": "html/lua-logo-mask.webp",
-	"type": "image/webp",
-	"sizes": "160x160",
+	"src": "html/icons/lua-logo-192.webp",
+	"sizes": "192x192",
+	"type": "image/webp"
+    },{
+	"src": "html/icons/lua-logo-512-mask.png",
+	"type": "image/png",
+	"sizes": "512x512",
 	"purpose": "maskable"
-    }],
+    },{
+	"src": "html/icons/lua-logo-192-mask.webp",
+	"type": "image/png",
+	"sizes": "192x192",
+	"purpose": "maskable"
+    }]
 }

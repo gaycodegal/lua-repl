@@ -4,9 +4,12 @@
     <meta charset="utf-8" />
     <meta name="viewport"  content="width=device-width initial-scale=1.0">
     <meta name="description" content="A Lua REPL built with JS/WASM">
+    <meta name="theme-color" content="#333">
     <title>Lua REPL</title>
-    <link rel="icon" type="image/x-icon" href="html/lua-logo.gif">
+    <link rel="apple-touch-icon" href="html/icons/lua-logo-192.webp"/>
+    <link rel="icon" type="image/x-icon" href="html/icons/lua-logo-192.webp">
     <link rel="stylesheet" href="html/style.css"></link>
+    <link rel="manifest" href="manifest.json">
     <script src="html/dark-mode.js"></script>
   </head>
   <body class="dark">
@@ -78,7 +81,29 @@
 	    }
 	};
       </script>
-      <script src="html/lua.js"></script>      
+      <script src="html/lua.js"></script>
+      <script>
+	const registerServiceWorker = async () => {
+	    if ("serviceWorker" in navigator) {
+		try {
+		    const registration = await navigator.serviceWorker.register("service-worker.js", {
+			scope: "/",
+		    });
+		    if (registration.installing) {
+			console.log("Service worker installing");
+		    } else if (registration.waiting) {
+			console.log("Service worker installed");
+		    } else if (registration.active) {
+			console.log("Service worker active");
+		    }
+		} catch (error) {
+		    console.error(`Registration failed with ${error}`);
+		}
+	    }
+	};
+
+	registerServiceWorker();
+      </script>
     </main>
     <footer>
       <a href="html/license.html">license</a>
