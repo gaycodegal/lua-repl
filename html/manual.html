@@ -43,7 +43,7 @@
     <main>
 <h1> Manual for the Web Lua REPL </h1>
 <p>
-  This web app has a few caveats to its use that normal lua
+  This web app has a few caveats to its use that normal Lua
   does not suffer. For the Lua documentation, please view
   <a href="../doc/readme.html">
     the Lua Read Me (Cached).
@@ -51,17 +51,21 @@
 </p>
 <ol>
   <li>
-    Files only persist if written to the /idbfs/ folder
+    Files only persist if written to the <code>/idbfs/</code> folder.
   </li>
   <li>
-    Changes to persistent files / the file system are written
-    to storage asynchronously on file close() operation
+    Changes to persistent files or the file system are written
+    to storage asynchronously on file close() operation.
+  </li>
+  <li>
+    Filesystem changes are also attempted to be written
+    when the REPL page is closed.
   </li>
   <li>
     dynamic library calls currently do not work, although
     it is possible to eventually support such things
     by allowing <code>.wasm</code> and <code>.js</code>
-    files to be uploaded
+    files to be uploaded.
   </li>
 </ol>
 

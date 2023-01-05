@@ -21,7 +21,6 @@ self.addEventListener("install", event => {
 	    "html/files.js",
 	    "html/lua.js",
 	    "html/lua.wasm",
-	    "html/term.js",
 	    "html/icons/lua-logo-192-mask.webp",
 	    "html/icons/lua-logo-192.webp",
 	    "html/icons/open_in_new_FILL0_wght400_GRAD0_opsz48.svg",
@@ -42,5 +41,3 @@ self.addEventListener("install", event => {
 self.addEventListener("fetch", (event) => {
   event.respondWith(caches.match(event.request));
 });
-
-

@@ -17,7 +17,6 @@ html/style.css
 html/files.js
 html/lua.js
 html/lua.wasm
-html/term.js
 
 # icons
 html/icons/lua-logo-192-mask.webp
