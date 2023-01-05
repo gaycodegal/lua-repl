@@ -1,0 +1,23 @@
+<h1> Manual for the Web Lua REPL </h1>
+<p>
+  This web app has a few caveats to its use that normal lua
+  does not suffer. For the Lua documentation, please view
+  <a href="../doc/readme.html">
+    the Lua Read Me (Cached).
+  </a>
+</p>
+<ol>
+  <li>
+    Files only persist if written to the /idbfs/ folder
+  </li>
+  <li>
+    Changes to persistent files / the file system are written
+    to storage asynchronously on file close() operation
+  </li>
+  <li>
+    dynamic library calls currently do not work, although
+    it is possible to eventually support such things
+    by allowing <code>.wasm</code> and <code>.js</code>
+    files to be uploaded
+  </li>
+</ol>

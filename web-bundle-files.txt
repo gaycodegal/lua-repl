@@ -8,7 +8,9 @@ LICENSE
 README.md
 # html
 html/file-management.html
+html/manual.html
 html/license.html
+
 html/dark-mode.js
 html/helpers.js
 html/style.css
@@ -23,3 +25,13 @@ html/icons/lua-logo-192-mask.webp
 html/icons/lua-logo-192.webp
 # html/icons/lua-logo-512.webp
 html/icons/open_in_new_FILL0_wght400_GRAD0_opsz48.svg
+
+# lua docs
+doc/contents.html
+doc/logo.gif
+doc/manual.css
+doc/osi-certified-72x60.png
+doc/index.css
+doc/lua.css
+doc/manual.html
+doc/readme.html

@@ -23,6 +23,16 @@ self.addEventListener("install", event => {
 	    "html/icons/lua-logo-192-mask.webp",
 	    "html/icons/lua-logo-192.webp",
 	    "html/icons/open_in_new_FILL0_wght400_GRAD0_opsz48.svg",
+
+	    // files for the Lua Docs
+	    "doc/contents.html",
+	    "doc/logo.gif",
+	    "doc/manual.css",
+	    "doc/osi-certified-72x60.png",
+	    "doc/index.css",
+	    "doc/lua.css",
+	    "doc/manual.html",
+	    "doc/readme.html",
 	])
     );
 });

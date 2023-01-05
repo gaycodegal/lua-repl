@@ -13,6 +13,7 @@ all:
 template:
 	lua scripts/templater.lua ./index
 	lua scripts/templater.lua ./html/license
+	lua scripts/templater.lua ./html/manual
 	lua scripts/templater.lua ./html/file-management
 clean:
 	git clean -fX
