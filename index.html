@@ -83,9 +83,6 @@
 	      print('main result: ' + await promise + '\n');
 
 	  });
-	  FS.trackingDelegate['onCloseFile'] = function(path) {
-	      FS.syncfs(true, ()=>{});
-	  };
 	  window.onbeforeunload = function() {
 	      FS.syncfs(true, ()=>{});
 	      return false;
@@ -117,6 +114,7 @@
 
   registerServiceWorker();
 </script>
+<button onclick="FS.syncfs(true, ()=>{});">Persist File Changes</button>
 
     </main>
     <footer>

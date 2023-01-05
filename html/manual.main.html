@@ -11,12 +11,13 @@
     Files only persist if written to the <code>/idbfs/</code> folder.
   </li>
   <li>
-    Changes to persistent files or the file system are written
-    to storage asynchronously on file close() operation.
+    Changes to persistent files are also attempted to be written
+    when the REPL page is closed. You can also manually
+    press the <code>Persist File Changes</code> button
+    to trigger this.
   </li>
   <li>
-    Filesystem changes are also attempted to be written
-    when the REPL page is closed.
+    Filesystem changes 
   </li>
   <li>
     dynamic library calls currently do not work, although
