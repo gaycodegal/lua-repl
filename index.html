@@ -83,11 +83,6 @@
 	      print('main result: ' + await promise + '\n');
 
 	  });
-	  window.onbeforeunload = function() {
-	      FS.syncfs(true, ()=>{});
-	      return false;
-	  };
-
       }
   };
 </script>
