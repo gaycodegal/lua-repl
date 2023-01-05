@@ -12,7 +12,9 @@ self.addEventListener("install", event => {
 	    "favicon.ico",
 	    
 	    "html/file-management.html",
+	    "html/manual.html",
 	    "html/license.html",
+
 	    "html/dark-mode.js",
 	    "html/helpers.js",
 	    "html/style.css",
