@@ -10,6 +10,10 @@ SPLASH_FILETYPE=png
 
 all:
 	cd ./third_party && emmake make -f ./lua-5.4.4.makefile wasm
+template:
+	lua scripts/templater.lua ./index
+	lua scripts/templater.lua ./html/license
+	lua scripts/templater.lua ./html/file-management
 clean:
 	git clean -fX
 dry-clean:

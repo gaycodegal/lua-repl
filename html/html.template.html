@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport"  content="width=device-width initial-scale=1.0">
+    <meta name="description" content="{{description}}">
+    <meta name="theme-color" content="#333">
+    <title>{{title}}</title>
+    <link rel="apple-touch-icon" href="html/icons/lua-logo-192.webp"/>
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/x-icon" href="{{relative_path}}icons/lua-logo-192.webp">
+    <link rel="stylesheet" href="{{relative_path}}style.css"></link>
+    <script src="{{relative_path}}dark-mode.js"></script>
+  </head>
+  <body class="dark">
+    <nav>
+      <details>
+	<summary>Navigation Links</summary>
+	<ul>
+	  <li>
+	    <a href="{{path_to_root}}">
+	      The Lua REPL
+	    </a>
+	  </li>
+	  <li>
+	    <a href="{{relative_path}}file-management.html">
+	      File Management
+	    </a>
+	  </li>
+	  <li>
+	    <a href="{{relative_path}}license.html">
+	      License
+	    </a>
+	  </li>
+	</ul>
+      </details>
+    </nav>
+    <main>
+{{main}}
+    </main>
+    <footer>
+      <a href="{{relative_path}}license.html">license</a>
+      <button onclick="toggleDarkmode()">toggle darkmode</button>
+    </footer>
+  </body>
+</html>

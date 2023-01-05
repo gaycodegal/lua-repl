@@ -31,6 +31,17 @@ make
 
 This will produce `html/lua.js` and `html/lua.wasm`.
 
+## Templates
+
+I got tired of writing the same nav elements in every file,
+so
+
+```bash
+make template
+```
+handles automatically doing that for me, just edit the `.main.html`
+version of the file instead of the `.html` version.
+
 ## Packaging
 
 To create the Zip and Web Bundle formats run:

@@ -4,7 +4,10 @@
     <meta charset="utf-8" />
     <meta name="viewport"  content="width=device-width initial-scale=1.0">
     <meta name="description" content="File management page for the Lua REPL">
+    <meta name="theme-color" content="#333">
     <title>Lua Files</title>
+    <link rel="apple-touch-icon" href="html/icons/lua-logo-192.webp"/>
+    <link rel="manifest" href="manifest.json">
     <link rel="icon" type="image/x-icon" href="icons/lua-logo-192.webp">
     <link rel="stylesheet" href="style.css"></link>
     <script src="dark-mode.js"></script>
@@ -33,25 +36,26 @@
       </details>
     </nav>
     <main>
-      <h1>File management</h1>
-      <h2>
-	Path: <span id="current-path">/</span>
-      </h2>
-      <table id="file-list">
-	<tr>
-	  <th> File Name </th>
-	  <th> Actions </th>
-	</tr>
-      </table>
-      <br>
-      <label
-	for="file-picker"
-	>
-	Upload file(s):
-      </label>
-      <input id="file-picker" type="file" multiple onchange="addFileFromInput(this)"/>
-      <script src="files.js"></script>
-      <script src="lua.js"></script>      
+<h1>File management</h1>
+<h2>
+  Path: <span id="current-path">/</span>
+</h2>
+<table id="file-list">
+  <tr>
+    <th> File Name </th>
+    <th> Actions </th>
+  </tr>
+</table>
+<br>
+<label
+  for="file-picker"
+  >
+  Upload file(s):
+</label>
+<input id="file-picker" type="file" multiple onchange="addFileFromInput(this)"/>
+<script src="files.js"></script>
+<script src="lua.js"></script>
+
     </main>
     <footer>
       <a href="license.html">license</a>
