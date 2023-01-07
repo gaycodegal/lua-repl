@@ -39,5 +39,8 @@ self.addEventListener("install", event => {
 });
 
 self.addEventListener("fetch", (event) => {
-  event.respondWith(caches.match(event.request));
+    const url = new URL(event.request.url);
+    url.hash = "";
+    url.search = "";
+    event.respondWith(caches.match(url.toString()));
 });
